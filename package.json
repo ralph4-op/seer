@@ -1,0 +1,12 @@
+{
+  "name": "hardhat-project",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.18"
+  },
+  "dependencies": {
+    "@orbitdb/core": "^2.4.3",
+    "@orbitdb/identity-provider-ethereum": "^1.0.3",
+    "helia": "^5.2.0"
+  }
+}

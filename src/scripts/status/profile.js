@@ -6,5 +6,7 @@ const userProfileStatus = [
     "admin",     // Admin with extra privileges
     "narc",      // User marked as an glowie or informant
     "public",   // user uses a public profile aka KYC.
-    "third-party"
+    "third-party",
+    "chomo",// chomos are forbidden from posting public images and media content.
+    "spammer"// too many requests detected.
   ];

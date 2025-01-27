@@ -1,6 +1,6 @@
 mod eth;
 mod btc;
- mod zcash;
+mod zcash;
 mod xmr;
 
 pub use eth::generate_ether_wallet;

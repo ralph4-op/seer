@@ -12,5 +12,5 @@ const commentStatus = [
     "shitpost",// might be a troll goes to the bottom. 
     'review',
     "signed",
-    "deleted",
+    "deleted",// including users that have been blocked.
 ];

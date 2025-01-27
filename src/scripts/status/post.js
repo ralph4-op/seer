@@ -12,4 +12,9 @@ const postStatus = [
     "signed",
     "ongoing",
     "shitpost",
+    "NSFW",
+    "White Market",
+    "Grey Market",
+    "Black Market",
+    "Red Market",
 ]

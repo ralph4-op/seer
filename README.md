@@ -2,6 +2,10 @@
 ## Tauri + Yew + Orbitdb + hardhat
 #
 This template should help get you started developing with Tauri and Yew.
+## - [] 
+###
+#
+
 
 ## Recommended IDE Setup
 

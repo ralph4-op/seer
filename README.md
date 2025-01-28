@@ -2,9 +2,10 @@
 ## Tauri + Yew + Orbitdb + hardhat
 #
 This template should help get you started developing with Tauri and Yew.
-## - [] 
-###
-#
+## - [] get keys from wallet_gen
+## - [] sign transactions for other currencies 
+## - [] send transactions to the networks.
+## - [] encrypt/store the keys safely.
 
 
 ## Recommended IDE Setup

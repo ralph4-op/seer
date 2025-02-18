@@ -13,3 +13,16 @@ pub fn YourContractsPage() -> Html {
         </div>
     }
 }
+// app.rs
+let call_contract = {
+    Callback::from(move |_| {
+        spawn_local(async move {
+            let result = invoke("call_contract", JsValue::NULL).await;
+            console::log!("Contract call result:", result);
+        });
+    })
+};
+
+html! {
+    <button onclick={call_contract}>{"Call Contract"}</button>
+}

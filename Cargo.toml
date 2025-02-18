@@ -16,6 +16,8 @@ serde-wasm-bindgen = "0.6"
 console_error_panic_hook = "0.1.7"
 gloo = "0.11.0"
 tauri = "2.2.5"
-
+yew-ethereum-provider = { git = "https://github.com/monomadic/yew-ethereum-provider" }
+sled = "0.34.7"
+chrono = "0.4.39"
 [workspace]
 members = ["src-tauri"]

@@ -1,24 +1,4 @@
 //create an instance of orbitdb that will take in users signatures and ask them for a username.
-import { createHelia, libp2pDefaults } from 'helia'
-import { createOrbitDB, Identities, useIdentityProvider } from '@orbitdb/core'
-import * as OrbitDBIdentityProviderEthereum from '@orbitdb/identity-provider-ethereum'
-import { createOrbitDB, useAccessController } from '@orbitdb/core'
-import { Libp2pOptions } from './config/libp2p.js'
-import { createLibp2p } from 'libp2p'
-import { createHelia } from 'helia'
-import { LevelBlockstore } from 'blockstore-level'
-
-const libp2pOptions = libp2pDefaults()
-const ipfs = await createHelia({ libp2p: libp2pOptions })
-
-useIdentityProvider(OrbitDBIdentityProviderEthereum)
-const provider = OrbitDBIdentityProviderEthereum({ wallet })
-
-const identities = await Identities({ ipfs })
-const identity = await identities.createIdentity({ id: 'userA', provider })
-
-await createOrbitDB({ ipfs, identities, identity })
-
 // Function to flag posts with restricted content
 function filterRestrictedContent(post) {
     const restrictedKeywords = ['gore', 'illegal-content'];
@@ -40,3 +20,32 @@ function filterRestrictedContent(post) {
   await postsDb.put(newPost);
   console.log(`Post status: ${newPost.status}`);
   
+
+
+export async function addUserProfile(signature, username) {
+    if (!db) {
+        throw new Error('OrbitDB not initialized');
+    }
+
+    const existingUser = await db.get(username);
+    if (existingUser) {
+        throw new Error('Username already taken');
+    }
+
+    await db.put(username, { signature, username });
+    console.log('User profile added:', username);
+}
+
+export async function getUserProfile(username) {
+    if (!db) {
+        throw new Error('OrbitDB not initialized');
+    }
+
+    return await db.get(username);
+}
+
+// Initialize OrbitDB when the app loads
+document.addEventListener('DOMContentLoaded', async () => {
+    await initOrbitDB();
+    console.log('OrbitDB is ready');
+});

@@ -6,9 +6,11 @@
   },
   "dependencies": {
     "@chainsafe/libp2p-gossipsub": "^14.1.0",
-    "@orbitdb/core": "^2.4.3",
+    "@orbitdb/core": "^2.5.0",
     "@orbitdb/identity-provider-ethereum": "^1.0.3",
     "blockstore-level": "^2.0.1",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.5",
     "helia": "^5.2.0"
   }
 }

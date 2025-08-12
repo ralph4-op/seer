@@ -1,34 +1,44 @@
-use serde::{Deserialize, Serialize};
-use wasm_bindgen::prelude::*;
-use wasm_bindgen_futures::spawn_local;
 use yew::prelude::*;
+use yew_router::prelude::*;
+use yew_ethereum_provider::EthereumProvider;
 
-// #[wasm_bindgen]
-// extern "C" {
-//     #[wasm_bindgen(js_namespace = ["window", "__TAURI__", "core"])]
-//     async fn invoke(cmd: &str, args: JsValue) -> JsValue;
-// }
+use crate::components::sign_in::{SignIn, ConnectedWalletContext};
+use crate::pages::contracts::Contracts;
 
-// #[derive(Serialize, Deserialize)]
-// struct GreetArgs<'a> {
-//     name: &'a str,
-// }
+#[derive(Clone, Routable, PartialEq)]
+pub enum Route {
+    #[at("/sign_in")]
+    SignIn,
+    #[at("/contracts")]
+    Contracts,
+    #[not_found]
+    #[at("/")]
+    NotFound,
+}
+
+fn switch(routes: Route) -> Html {
+    match routes {
+        Route::SignIn => html! { <SignIn /> },
+        Route::Contracts => html! { <Contracts /> },
+        Route::NotFound => html! { <h1>{"404 - Page Not Found"}</h1> },
+    }
+}
 
 #[function_component(App)]
 pub fn app() -> Html {
-    {
-    html! {
-        <main class="container">
-       
-<h1>{"Hi!"}</h1>
-   
-            // <form class="row" onsubmit={greet}>
-            //     <input id="greet-input" ref={greet_input_ref} placeholder="Enter a name..." />
-            //     <button type="submit">{"Greet"}</button>
-            // </form>
+    let connected_address = use_state(|| None::<String>);
 
-            // <p><b>{ &*greet_msg }</b></p>
-        </main>
+    let connected_wallet_ctx = ConnectedWalletContext {
+        address: connected_address,
+    };
+
+    html! {
+        <BrowserRouter>
+            <EthereumProvider>
+                <ContextProvider<ConnectedWalletContext> context={connected_wallet_ctx}>
+                    <Switch<Route> render={switch} />
+                </ContextProvider<ConnectedWalletContext>>
+            </EthereumProvider>
+        </BrowserRouter>
     }
-}
 }

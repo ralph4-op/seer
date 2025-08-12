@@ -1,4 +1,5 @@
 mod app;
+mod wallet_gen;
 
 use app::App;
 

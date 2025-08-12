@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 400">
+  <defs>
+    <radialGradient id="gradOuter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFF6D1; stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#BFA24A; stop-opacity:1"/>
+    </radialGradient>
+    <radialGradient id="gradCenter" cx="50%" cy="50%" r="50%">
+      <stop offset="20%" style="stop-color:#602F6B; stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#9B59B6; stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#462454; stop-opacity:1"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="100" cy="200" rx="90" ry="180" fill="url(#gradOuter)" stroke="#DAC77B" stroke-width="8"/>
+  <circle cx="100" cy="200" r="70" fill="url(#gradCenter)"/>
+  <circle cx="100" cy="200" r="30" fill="#3A1454"/>
+  <circle cx="120" cy="180" r="10" fill="#EAE1F6" opacity="0.7"/>
+</svg>

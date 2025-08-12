@@ -3,109 +3,110 @@ use yew_ethereum_provider::{EthereumProvider, EthereumContext};
 use serde::{Deserialize, Serialize};
 use web_sys::console;
 use wasm_bindgen_futures::spawn_local;
+use yew_router::prelude::*;
+use crate::Route;
 
-#[derive(Serialize, Deserialize)]
-struct UsernameRequest {
-    signature: String,
-    username: String,
+// This context will hold the connected Ethereum address
+#[derive(Clone, PartialEq)]
+pub struct ConnectedWalletContext {
+    pub address: UseStateHandle<Option<String>>,
 }
 
 #[function_component(SignIn)]
 pub fn sign_in() -> Html {
     let ethereum = use_context::<EthereumContext>().expect("Ethereum context not found");
+    let connected_wallet_ctx = use_context::<ConnectedWalletContext>().expect("Connected Wallet context not found");
 
     let signature = use_state(|| None::<String>);
-    let username = use_state(|| String::new());
     let error = use_state(|| None::<String>);
+    let navigator = use_navigator().unwrap();
 
-    let on_sign = {
+    let on_connect = {
         let ethereum = ethereum.clone();
-        let signature = signature.clone();
+        let connected_wallet_ctx = connected_wallet_ctx.clone();
+        let error = error.clone();
+        let navigator = navigator.clone();
+
         Callback::from(move |_| {
             let ethereum = ethereum.clone();
-            let signature = signature.clone();
+            let connected_wallet_ctx = connected_wallet_ctx.clone();
+            let error = error.clone();
+            let navigator = navigator.clone();
 
             spawn_local(async move {
-                let message = "Please sign this message to verify your identity.";
-                let signer = ethereum.signer();
-
-                match signer.sign_message(message).await {
-                    Ok(sig) => {
-                        signature.set(Some(sig));
+                match ethereum.connect().await {
+                    Ok(accounts) => {
+                        if let Some(address) = accounts.get(0) {
+                            console::log_1(&format!("Connected to MetaMask with address: {}", address).into());
+                            connected_wallet_ctx.address.set(Some(address.to_string()));
+                            navigator.push(&Route::Contracts); // Navigate to contracts page after successful connection
+                        } else {
+                            error.set(Some("No accounts found after connection.".to_string()));
+                        }
                     }
                     Err(e) => {
-                        console::error_1(&format!("Failed to sign message: {:?}", e).into());
+                        console::error_1(&format!("Failed to connect to MetaMask: {:?}", e).into());
+                        error.set(Some(format!("Failed to connect to MetaMask: {:?}", e)));
                     }
                 }
             });
         })
     };
 
-    let on_username_submit = {
+    let on_sign_message = {
+        let ethereum = ethereum.clone();
         let signature = signature.clone();
-        let username = username.clone();
         let error = error.clone();
 
-        Callback::from(move |e: SubmitEvent| {
-            e.prevent_default();
+        Callback::from(move |_| {
+            let ethereum = ethereum.clone();
+            let signature = signature.clone();
+            let error = error.clone();
 
-            if let Some(sig) = &*signature {
-                let username = username.to_string();
+            spawn_local(async move {
+                let message = "Please sign this message to verify your identity for Zcash wallet.";
+                let signer = ethereum.signer();
 
-                spawn_local(async move {
-                    let request = UsernameRequest {
-                        signature: sig.clone(),
-                        username: username.clone(),
-                    };
-
-                    // Call JavaScript function to add user profile to OrbitDB
-                    let js_value = serde_wasm_bindgen::to_value(&request).unwrap();
-                    let result = js_sys::Promise::from(wasm_bindgen::JsValue::from(
-                        web_sys::window()
-                            .unwrap()
-                            .eval(&format!("addUserProfile('{}', '{}')", sig, username))
-                            .unwrap(),
-                    ))
-                    .await;
-
-                    match result {
-                        Ok(_) => {
-                            console::log_1(&"Username registered successfully!".into());
-                            // Redirect or update state as needed
-                        }
-                        Err(e) => {
-                            console::error_1(&format!("Failed to register username: {:?}", e).into());
-                            error.set(Some("Failed to register username.".to_string()));
-                        }
+                match signer.sign_message(message).await {
+                    Ok(sig) => {
+                        signature.set(Some(sig));
+                        console::log_1(&"Message signed successfully!".into());
                     }
-                });
-            } else {
-                error.set(Some("Please sign the message first.".to_string()));
-            }
+                    Err(e) => {
+                        console::error_1(&format!("Failed to sign message: {:?}", e).into());
+                        error.set(Some(format!("Failed to sign message: {:?}", e)));
+                    }
+                }
+            });
         })
     };
 
     html! {
-        <div>
-            <h1>{"Sign In"}</h1>
-            <button onclick={on_sign}>{"Sign Message"}</button>
-            {if signature.is_some() {
+        <div class="sign-in-container">
+            <h1>{"Connect Your Wallet"}</h1>
+            {if connected_wallet_ctx.address.is_none() {
                 html! {
-                    <form onsubmit={on_username_submit}>
-                        <input
-                            type="text"
-                            placeholder="Choose a username"
-                            value={(*username).clone()}
-                            oninput={Callback::from(move |e: InputEvent| {
-                                let input = e.target_unchecked_into::<web_sys::HtmlInputElement>();
-                                username.set(input.value());
-                            })}
-                        />
-                        <button type="submit">{"Submit Username"}</button>
-                    </form>
+                    <button onclick={on_connect} class="connect-button">
+                        {"Connect MetaMask"}
+                    </button>
                 }
             } else {
-                html! {}
+                html! {
+                    <div class="wallet-info">
+                        <p>{"Connected Address: "}{connected_wallet_ctx.address.as_ref().unwrap()}</p>
+                        {if signature.is_none() {
+                            html! {
+                                <button onclick={on_sign_message} class="sign-message-button">
+                                    {"Sign Message for Zcash"}
+                                </button>
+                            }
+                        } else {
+                            html! {
+                                <p>{"Message Signed! You can now proceed to Contracts page."}</p>
+                            }
+                        }}
+                    </div>
+                }
             }}
             {if let Some(err) = &*error {
                 html! { <p style="color: red;">{err}</p> }

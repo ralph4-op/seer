@@ -7,12 +7,16 @@ use crate::pages::contracts::Contracts;
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
+    #[at("/")]
+    Home,
     #[at("/sign_in")]
     SignIn,
     #[at("/contracts")]
     Contracts,
+    #[at("/settings/*")]
+    Settings,
     #[not_found]
-    #[at("/")]
+    #[at("/404")]
     NotFound,
 }
 
@@ -21,6 +25,8 @@ fn switch(routes: Route) -> Html {
         Route::SignIn => html! { <SignIn /> },
         Route::Contracts => html! { <Contracts /> },
         Route::NotFound => html! { <h1>{"404 - Page Not Found"}</h1> },
+        Route::Home => todo!(), //will contain standard feed
+        Route::Settings => todo!(),
     }
 }
 

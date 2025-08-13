@@ -7,6 +7,12 @@ use wasm_bindgen::UnwrapThrowExt;
 pub enum Route {
     #[at("/")]
     Home,
+     #[at("/sign_in")]
+    SignIn,
+    #[at("/contracts")]
+    Contracts,
+    #[at("/settings/*")]
+    Settings,
     #[at("/user/:username")]
     UserProfile { username: String },
     #[at("/group/:group_name")]
@@ -67,9 +73,13 @@ fn not_found() -> Html {
 fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => html! { <Home /> },
+        Route::Contracts => html! { <Contracts /> },
         Route::UserProfile { username } => html! { <UserProfile username={username} /> },
         Route::Group { group_name } => html! { <Group group_name={group_name} /> },
         Route::Trend { trend_type, trend_name } => html! { <Trend trend_type={trend_type} trend_name={trend_name} /> },
         Route::NotFound => html! { <NotFound /> },
+        Route::Settings => todo!(),
+        Route::SignIn => html! { <SignIn /> },
+
     }
 }

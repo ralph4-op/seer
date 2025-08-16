@@ -13,6 +13,20 @@ Conditional contracts introduce logic and conditions that must be met before a t
 ### 1.3 Accountant Mode Contracts
 Accountant mode contracts are designed for managing financial flows and balances, similar to a balance sheet. This includes functionalities like paying multiple people or entities simultaneously, managing recurring payments, or distributing funds based on predefined percentages or amounts. This mode necessitates robust tracking, reporting, and potentially automated execution of complex financial operations. The Seer project's README mentions 'reoccuring' and 'smart stock' as examples, where 'smart stock' implies a mechanism for dividing and sending crypto to multiple addresses based on specified percentages or amounts [1].
 
+### 1.4 SmartStock Market Contracts
+SmartStock contracts extend accountant mode:
+They enable fractional ownership of an asset using a fixed or user-defined number of "smartstock units" tracked by the system or third-party provider.
+
+When a deposit enters the specified address, the logic distributes payouts proportionally to each unit holder via a looping (foreach) function.
+
+Example: A contract with 1,000 smartstocks and a deposit of 100XMR will pay each owner per their number of units (e.g., 1% for 10 units).
+
+Users define the total number of units.
+
+Ownership is transferable; units can be bought, sold, or sent to another address.
+
+This approach does not require Ethereum or Solana. Distribution and tracking are managed by an independent service or application.
+
 ## 2. Cryptocurrency Integration Patterns and Trust Mechanisms
 
 Integrating cryptocurrencies into these contract types requires understanding their native capabilities and how trust is established within their respective ecosystems. The spectrum of trust ranges from the inherent cryptographic security of the blockchain to reliance on external mechanisms or trusted third parties.

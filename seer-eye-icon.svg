@@ -1,0 +1,37 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="goldenAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="irisGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8A2BE2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4169E1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E90FF;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Golden aura -->
+  <ellipse cx="100" cy="100" rx="60" ry="90" fill="url(#goldenAura)" />
+
+  <!-- Main eye shape -->
+  <path d="M 100 30
+           C 40 60, 40 140, 100 170
+           C 160 140, 160 60, 100 30
+           Z"
+    fill="#5b1dacff" />
+
+  <!-- Eye white: use ellipse here -->
+  <ellipse cx="100" cy="100" rx="35" ry="45" fill="#201058ff" />
+
+  <!-- Iris -->
+  <circle cx="100" cy="100" r="22" fill="url(#irisGradient)" />
+
+  <!-- Pupil -->
+  <circle cx="100" cy="100" r="9" fill="#7909d4af" />
+
+  <!-- Highlight -->
+  <circle cx="108" cy="92" r="4" fill="#FFFFFF" opacity="0.87"/>
+</svg>
+
+

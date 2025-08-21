@@ -28,7 +28,7 @@
   <circle cx="100" cy="100" r="22" fill="url(#irisGradient)" />
 
   <!-- Pupil -->
-  <circle cx="100" cy="100" r="9" fill="#7909d4af" />
+  <circle cx="100" cy="100" r="9" fill="#140124af" />
 
   <!-- Highlight -->
   <circle cx="108" cy="92" r="4" fill="#FFFFFF" opacity="0.87"/>

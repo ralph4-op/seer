@@ -3,8 +3,8 @@ use yew::prelude::*;
 //public
 
 
-#[function_component(YourNetwork)]
-fn YourNetwork()-> Html {
+#[function_component(YourContacts)]
+fn YourContacts()-> Html {
     html! {
         <div>
 

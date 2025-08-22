@@ -18,11 +18,7 @@ rand = "0.8.5"
 secp256k1 = { version = "0.30.0", features = ["rand"] }
 serde = { version = "1.0.162", features = ["derive"] }
 sha3 = "0.10.8"
-zcash_address = "0.6.2"
-zcash_primitives = "0.21.0"
-# generate wallets.
+zcash_address = "0.6.2"# generate wallets.
 zcash_primitives = { version = "0.14.0", features = ["full-prover"] }
-zcash_address = "0.6.2"
 async-trait = "0.1.71"
 serde_json = "1.0.96"
-hex = "0.4.3"

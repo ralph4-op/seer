@@ -4,6 +4,9 @@
 This template should help get you started developing with Tauri and Yew.
 
 
+```Install a late version of nodejs, rust and wasm```
+than run
+```cargo tauri dev```
 #### - [] debug ai code
 ##### - [] get tauri to work again.
 

@@ -37,7 +37,7 @@ pub fn Contracts() -> Html {
 
     html! {
         <div class="contracts-container">
-            <h1>{"Your Wallets and Contracts"}</h1>
+            <h1>{"Your  Contracts"}</h1>
 
             {if let Some(eth_addr) = (*connected_wallet_ctx.address).clone() {
                 html! { <p>{"Connected Ethereum Address: "}{eth_addr}</p> }

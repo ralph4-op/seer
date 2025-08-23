@@ -44,7 +44,6 @@ than run
 ### Notifications
 #### - [] add push notification feature for new messages and transactions
 #### - [] realtime balance updates
-## Recommended IDE Setup
 
 ### Escrow service and moderation.
 #### - [] generate multisignature wallets for various different crypto's

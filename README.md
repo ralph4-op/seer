@@ -1,9 +1,9 @@
-#A Seer bridging the gap between free speech and free market.
-## Tauri + Yew + Orbitdb + hardhat
+# Seer bridging the gap between free speech and free market.
+## 
 #
 This template should help get you started developing with Tauri and Yew.
 
-
+### Tauri + Yew + Orbitdb + hardhat
 ```Install a late version of nodejs, rust and wasm```
 than run
 ```cargo tauri dev```

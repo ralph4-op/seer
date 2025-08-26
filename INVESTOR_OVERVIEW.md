@@ -170,3 +170,6 @@ Running concurrently with Phase 1 and 2, this initiative will introduce a decent
 •
 Smart GoFundMe Projects: Implementation of a smart contract-based crowdfunding platform, allowing individuals and open-source projects to raise funds transparently and efficiently. This will provide a new and innovative way to monetize open-source development and other community-driven initiatives, enabling fans and users to request specific features and crowdfund developers via petition and direct funding for custom functionalities.
 
+
+
+

@@ -1,5 +1,5 @@
-# Seer bridging the gap between free speech and free market.
-## 
+# Seer: 
+## bridging the gap between free speech and free market.
 #
 This template should help get you started developing with Tauri and Yew.
 
@@ -10,20 +10,20 @@ than run
 #### - [] debug ai code
 
 ## - [] phase 1
-### - [] User Authentication and Account Management
-#### - [] Allow users to create an account using there ethereum provider.
-#### - [] Then prompt them to choose a username, that hasn't been taken.
-#### - [] Verify the uniqueness of the chosen username using OrbitDB. If unique, create a  new user document in OrbitDB with the Ethereum address and username. 
-#### - [] Implement an authentication mechanism using the metamask for future logins.
-#### - [] Store profile information in OrbitDB, linked to the user's Ethereum address
+ ### - [] User Authentication and Account Management
+    #### - [] Allow users to create an account using there ethereum provider.
+    #### - [] Then prompt them to choose a username, that hasn't been taken.
+    #### - [] Verify the uniqueness of the chosen username using OrbitDB. If unique, create a  new user document in OrbitDB with the Ethereum address and username. 
+    #### - [] Implement an authentication mechanism using the metamask for future logins.
+    #### - [] Store profile information in OrbitDB, linked to the user's Ethereum address
 
 ### - [] Wallet 
-#### - [] get keys from wallet_gen into orbitdb and to be aviable for the user to use.
-#### - [] sign transactions for other currencies 
-#### - [] send transactions to the networks.
-#### - [] view balances.
-#### - [] encrypt/store the keys safely.
-#### - [] generate a backup passphrase for accounts.seed phrase and store it securely
+    #### - [] get keys from wallet_gen into orbitdb and to be aviable for the user to use.
+    #### - [] sign transactions for other currencies 
+    #### - [] send transactions to the networks.
+    #### - [] view balances.
+    #### - [] encrypt/store the keys safely.
+    #### - [] generate a backup passphrase for accounts.seed phrase and store it securely
 
 
 ### - [] Implement user profile management:

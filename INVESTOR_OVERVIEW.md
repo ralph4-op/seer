@@ -1,5 +1,41 @@
 Seer: Bridging Free Speech and Free Markets in a Decentralized World
 
+## Support & Investment
+
+Seer is actively seeking pioneering investors to help build the future of decentralized digital ownership and free speech. 
+
+- **Invest $1.2M for 7% equity in Seer.** This investment gives direct ownership in our platform as we scale development and expand our market.
+- For serious equity interest, please DM on Session or SimpleX. All negotiations and agreements are handled privately and securely.
+- Individual supporters may also contribute via cryptocurrency; all donations support ongoing platform growth.
+
+Your investment helps us deliver economic freedom for all.
+
+
+XMR:
+48MFdud8qoac4pcdeYhoFxU52TbDQXuLqR63USeppBFcGLkQh4iF1Ryc5PtCLE2utzhpdcat4b3qa81aWoQrnVzf4fzzXFo
+
+BTC
+14qNzW7rFvs5wRLWbVk9PKtRnBbKA9ZSv2
+
+ethereum
+0x5e6dfacf4ce0e4f085a21dbe36ffd5b7b40234a3
+
+zcash
+t1NHotVFSXUmwzLmm4tnWiKkeeeMkdCrPzQ
+
+
+
+
+
+session: 05c08b285c8fec9d5cbcaf83af8103130c94d1c0d964ddb6b2a4bb2edbbcd22076
+
+https://smp9.simplex.im/a#AoxyE5JHW-gEilr1tbUngwxpSBE5zU5VRZ_zu9EXHDM
+
+
+
+
+
+
 The Multi-Trillion Dollar Problem: Centralized Control, Censorship, and Fragmented Digital Economies
 
 In an increasingly digital world, the fundamental pillars of free speech and economic liberty are under unprecedented threat. Centralized social media platforms, while offering connectivity, have become arbiters of truth, engaging in widespread censorship, data exploitation, and opaque content moderation. Users are disempowered, their digital identities and creations subject to the whims of corporate policies, leading to a pervasive sense of distrust and a chilling effect on open discourse. This centralized control extends beyond communication, fragmenting digital economies into walled gardens where value is extracted by intermediaries, and creators struggle to monetize their work fairly.

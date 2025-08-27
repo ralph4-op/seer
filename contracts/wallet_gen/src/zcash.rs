@@ -12,49 +12,40 @@ use zcash_primitives::transaction::components::amount;
 use zcash_primitives::transaction::components::amount::Amount;
 use orchard::Note;
 use zcash_primitives::sapling::Node;
-
 pub fn generate_zcash_wallet() -> (String, String) {
     let mut rng = rand::thread_rng();
     let mut random_bytes = [0u8; 32];
     rng.fill(&mut random_bytes);
 
-    let sk = SpendingKey::from_bytes(random_bytes).expect("Failed to create spending key");
-    let fvk = FullViewingKey::from(&sk);
-    let address = fvk.address_at(0u32, Scope::External);
+    let sk: Option<SpendingKey> = SpendingKey::from_bytes(random_bytes).into();
+    let sk = sk.expect("Failed to create spending key from bytes");
+    let full_viewing_key = FullViewingKey::from(&sk);
+    let address = full_viewing_key.address_at(0u32, Scope::External);
 
-    let sk_encoded = base58::ToBase58::to_base58(&random_bytes); // Encode the key
-    let addr_string = format!("{:?}", address);
-
-    (sk_encoded, addr_string)
+    (format!("{:?}", sk), format!("{:?}", address))
 }
 
-
-
-pub fn sign_transaction(
-    sk: SpendingKey, 
-    recipient: Address, 
-    value: Amount, 
-    memo: Option<String>
-) -> Result<(), OutputError> {
+pub fn sign_transaction(sk: SpendingKey, recipient: Address, value: Amount,memo: Option<String>) -> Result<(), OutputError> {
+    // Convert the SpendingKey to a FullViewingKey
     let fvk = FullViewingKey::from(&sk);
+    // Get the OutgoingViewingKey from the FullViewingKey
     let ovk = Some(fvk.to_ovk(Scope::External));
-
-    // Example: Replace with actual anchor calculation
-    let anchor = Anchor::from(MerkleHashOrchard::default()); 
-
-    let mut builder = Builder::new(
-        Flags::from_parts(true, true), // Spends and outputs enabled
-        anchor
-    );
-
-    let note_value = NoteValue::from_raw(value.into());
-
+ 
+    let spends_enabled = true;
+    let outputs_enabled = true;
+    // Compute the anchor
+    let anchor = Anchor::from.clone().MerkleHashOrchard;
+    
+    let mut builder =
+        orchard::builder::Builder::new(Flags::from_parts(spends_enabled, outputs_enabled,), anchor);
+    // Convert the Amount to a NoteValue
+    let note_value = NoteValue::default;
+    // Convert the memo to a [u8; 512]
     let memo_bytes = memo.map(|s| {
         let mut bytes = [0u8; 512];
-        bytes[..s.len()].copy_from_slice(s.as_bytes());
+        bytes.copy_from_slice(s.as_bytes());
         bytes
     });
-
-    builder.add_recipient(ovk, recipient, note_value, memo_bytes)?;
-    Ok(())
+    // Add the recipient to the transaction
+    builder.add_recipient(ovk, recipient, note_value(), memo_bytes)
 }

@@ -39,7 +39,15 @@ pub fn sign_in() -> Html {
                         if let Some(address) = accounts.get(0) {
                             console::log_1(&format!("Connected to MetaMask with address: {}", address).into());
                             connected_wallet_ctx.address.set(Some(address.to_string()));
-                            navigator.push(&Route::Contracts); // Navigate to contracts page after successful connection
+
+                            // Check if user exists in OrbitDB
+                            let user_exists = wasm_bindgen::JsValue::from(js_sys::global().get("getUserProfile").call1(&js_sys::global(), &wasm_bindgen::JsValue::from_str(&address.to_string())).unwrap()).as_bool().unwrap_or(false);
+
+                            if user_exists {
+                                navigator.push(&Route::Contracts); // Navigate to contracts page if user exists
+                            } else {
+                                navigator.push(&Route::CreateAccount); // Navigate to create account page if user does not exist
+                            }
                         } else {
                             error.set(Some("No accounts found after connection.".to_string()));
                         }

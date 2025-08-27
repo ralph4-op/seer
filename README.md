@@ -25,45 +25,43 @@ than run
     #### - [] encrypt/store the keys safely.
     #### - [] generate a backup passphrase for accounts.seed phrase and store it securely
 
-
 ### - [] Implement user profile management:
-#### - [] Create a profile page where users can add/edit their bio, profile picture, and other details
-#### - [] Implement privacy settings to control visibility of profile information
-#### - [] Add functionality for users to follow/unfollow other users
-#### - [] Create a feed displaying posts from followed users
-#### - [] make sure the wallets are properly recieving updates for transactions and implement real-time balance updates
+    #### - [] Create a profile page where users can add/edit their bio, profile picture, and other details
+    #### - [] Implement privacy settings to control visibility of profile information
+    #### - [] Add functionality for users to follow/unfollow other users
+    #### - [] Create a feed displaying posts from followed users
+    #### - [] make sure the wallets are properly recieving updates for transactions and implement real-time balance updates
 
 ### - Feed and posts.
-#### - [] allow users to post text content.
-#### - [] edit the CID allowing users to post larger content.
-#### - [] using WASM fuzz content especially exceeding 50 MBs.
-#### - [] give the user a level of authetication for there posts settings.
-#### - [] Create specific routes for financial content.
-#### - [] Create different routes for other content types including private ones.
+    #### - [] allow users to post text content.
+    #### - [] edit the CID allowing users to post larger content.
+    #### - [] using WASM fuzz content especially exceeding 50 MBs.
+    #### - [] give the user a level of authetication for there posts settings.
+    #### - [] Create specific routes for financial content.
+    #### - [] Create different routes for other content types including private ones.
 
 ### Notifications
-#### - [] add push notification feature for new messages and transactions
-#### - [] realtime balance updates
+    #### - [] add push notification feature for new messages and transactions
+    #### - [] realtime balance updates
 
 ### Escrow service and moderation.
-#### - [] generate multisignature wallets for various different crypto's
-##### - [] generate addresses for those wallets on demand, especially when the user types in $.
-##### - [] recieve notifications for them. 
-##### - [] find commission workers & AI to mediate between both.
-###### - [] upon recieving notifications give both yourself and escrows ability over transactional status. Defualt being held by escrow. 
-
+    #### - [] generate multisignature wallets for various different crypto's
+    #### - [] generate addresses for those wallets on demand, especially when the user types in $.
+    #### - [] recieve notifications for them. 
+    #### - [] find commission workers & AI to mediate between both.
+    ###### - [] upon recieving notifications give both yourself and escrows ability over transactional status. Defualt being held by escrow. 
 
 ### Cybersecurity
-#### - [] sanitize and whitelist.
-#### - [] Have a decent sized network.
-#### - [] Have DDOS protection from too much content or requests sent out.
+    #### - [] sanitize and whitelist.
+    #### - [] Have a decent sized network.
+    #### - [] Have DDOS protection from too much content or requests sent out.
 
 ### DM's
-#### - [] Add post quantum DM's to user profiles. 
+    #### - [] Add post quantum DM's to user profiles. 
 
 ### - [] Import third party crypto API's.
 ### - [] recruit other marketplace admins.
-
+### - [] add crowdfunding features
 ## Phase 2
 ### - [] referal contract for marketing.
 ### - [] Self hosting contracts.

@@ -60,11 +60,20 @@ than run
     #### - [] Add post quantum DM's to user profiles. 
 
 ### - [] Import third party crypto API's.
+    #### - [] import third party api's to find products
+
 ### - [] recruit other marketplace admins.
+    #### - [] reach out to alternative marketplace admins and pitch to them
+    #### - [] edit one of your databases to add optional third party escrows
+    #### - [] sell badges/verifications to them to escrow products.
 ### - [] add crowdfunding features
+    #### - [] recieve the view key/public key for crowdfund
+    #### - [] dislay the crowdfund as a progress bar and proposal similar to go fund me but with a smaller frame in screen. 
 ## Phase 2
 ### - [] referal contract for marketing.
+    #### - [] marketing will be done via referral contracts as to pay for itself.
 ### - [] Self hosting contracts.
+    #### - [] of profit to maintain 10% per clusters.
 #### - [] Deadman switch.
 #### - [] allow for larger datatypes including video and repos after launching the self hosting contract.
 ### - [] upgrade encryption if you haven't done so before.

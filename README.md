@@ -4,8 +4,19 @@
 This template should help get you started developing with Tauri and Yew.
 
 ### Tauri + Yew + Orbitdb + hardhat
-```Install a late version of nodejs, rust and wasm```
-than run
+Node.js (version 19 or higher recommended)
+Install Node.js version 19 or above to ensure compatibility with OrbitDB and its dependencies.
+
+Install Rust by running
+```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh ```
+Install wasm target for Rust via
+```rustup target add wasm32-unknown-unknown ```
+
+``` npm init -y```
+``` npm install --save-dev hardhat ```
+
+
+Once dependencies are installed, start your app with:
 ```cargo tauri dev```
 #### - [] debug ai code
 

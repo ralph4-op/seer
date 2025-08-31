@@ -1,12 +1,6 @@
 ##
 ####
 ####
-- [] figure out how to sign and submit transactions to the networks.
-
-#
--[] Add frost and other code.
-- [] basic transactions
-- []
 
 ### The wallet_gen library is intended to generate minimalistic types for monero, zcash, bitcoin and ethereum as well as other wallets we add in the future. 
 ##### What it's not intended to do, 

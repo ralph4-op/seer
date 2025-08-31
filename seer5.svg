@@ -1,0 +1,27 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Labial Shape with Gold Outline -->
+  <ellipse cx="100" cy="100" rx="60" ry="90" fill="#5C2E91" stroke="#FFD700" stroke-width="4"/>
+  <!-- Gentle Glow for Inspiration -->
+  <ellipse cx="100" cy="100" rx="67" ry="97" fill="none" stroke="#ffeb99" stroke-width="2" opacity="0.3"/>
+  <!-- Iris, gemstone style -->
+  <circle cx="100" cy="100" r="35" fill="url(#gemGradient)"/>
+  <!-- Pupil -->
+  <circle cx="100" cy="100" r="17" fill="#21023c"/>
+  <!-- Subtle Sparkle Highlight -->
+  <circle cx="113" cy="94" r="5" fill="white" opacity="0.8"/>
+  <!-- Radiant Rays -->
+  <g opacity="0.25">
+    <line x1="100" y1="23" x2="100" y2="12" stroke="#FFD700" stroke-width="3"/>
+    <line x1="100" y1="177" x2="100" y2="188" stroke="#FFD700" stroke-width="3"/>
+    <line x1="45" y1="100" x2="27" y2="100" stroke="#FFD700" stroke-width="3"/>
+    <line x1="155" y1="100" x2="173" y2="100" stroke="#FFD700" stroke-width="3"/>
+  </g>
+  <!-- Gradient Definition for Gemstone Iris -->
+  <defs>
+    <radialGradient id="gemGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#84f3c5"/>
+      <stop offset="60%" stop-color="#1976d2"/>
+      <stop offset="90%" stop-color="#21023c"/>
+    </radialGradient>
+  </defs>
+</svg>

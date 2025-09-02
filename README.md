@@ -47,7 +47,8 @@
 
 6. **Install Tauri CLI:**
    ```bash
-   npm install -g @tauri-apps/cli
+   cargo install tauri-cli
+
    ```
 
 ### Running the DApp
